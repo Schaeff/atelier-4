@@ -75,4 +75,16 @@ contract Campaign {
             msg.sender.send(funds);
         }
     }
+    
+    function getRewardDescription(uint index) constant returns(string) {
+        return rewards[index].description;
+    }
+    
+    function getRewardPrice(uint index) constant returns(uint) {
+        return rewards[index].price;
+    }
+    
+    function getRewardCount() constant returns(uint) {
+        return rewards.length;
+    }
 }
