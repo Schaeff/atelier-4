@@ -13,7 +13,7 @@ module.exports = {
     "Campaign"
   ],
   rpc: {
-    host: "localhost",
-    port: 8545
+    host: "crowdfunding-NAME_HERE.c9users.io",
+    port: 8081
   }
 };
