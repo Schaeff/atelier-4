@@ -5801,11 +5801,26 @@ var Pudding =
 
 var accounts;
 var account;
-var balance;
+var accountID = 0
 
-$(document).ready(function() {
-  // your code here!
-})
+var campaign
+
+
+
+
+
+function setChangeAccount(newAccount) {
+  accountID = newAccount;
+  account = accounts[accountID];
+  displayAccounts();
+}
+
+function displayAccounts() {
+//  var accountList = accounts
+//    .map((x, i) => ('<button onclick="setChangeAccount(' + i + ')">' + i + '</button>' + ' : ' + x) + (i == accountID ? '     <------ you are this guy' : ''))
+//    .join('<br>')
+//  $("#accounts").html(accountList)
+}
 
 window.onload = function() {
   web3.eth.getAccounts(function(err, accs) {
@@ -5819,8 +5834,12 @@ window.onload = function() {
       return;
     }
 
+    campaign = Campaign.deployed();
+
     accounts = accs;
-    account = accounts[0];
+    account = accounts[accountID];
+
+    displayAccounts();
 
   });
 }
